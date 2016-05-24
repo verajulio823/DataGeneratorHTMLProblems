@@ -38,7 +38,8 @@ public  class ConnectionManager {
         
         try {
         	Class.forName("com.mysql.jdbc.Driver");
-            c = DriverManager.getConnection("jdbc:mysql://localhost:3306/capitan?user=root&password=");
+            c = DriverManager
+            		.getConnection("jdbc:mysql://localhost:3306/capitan?user=root&password=sistemas");
         } catch (SQLException e) {
         	System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
@@ -51,6 +52,49 @@ public  class ConnectionManager {
             Logger.getLogger(ex.getMessage());
         }
         //return c;
+    }
+    public static boolean saveSinteticSolutions(List<CodeEntity> solutions) throws SQLException {
+    	System.out.println("SAVE SINTETICS...");
+    	try {
+    		c.setAutoCommit(false);
+    		System.out.println("SINTETICS; " + solutions.size());
+    		for (CodeEntity solution : solutions) {
+    			//System.out.println("PAGEID: " + solution.getPage_id());
+    			//System.out.println("USERID: " + solution.getUser_id());
+    			//System.out.println("ANSWID: " + solution.getAnswer_id());
+    			solution.setCode(replaceComillas(solution.getCode()));
+    			String query = "INSERT INTO `sintetics` "
+    					+ "(page_id, result) VALUES ("
+    						+ solution.getPageId() + ",\""
+    						+ solution.getCode() + "\");";
+    			System.out.println("query: " + query);
+    			PreparedStatement psQuery = c.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+    			//psQuery.execute();
+    			
+    			Integer idSolution = psQuery.executeUpdate();
+    			
+    			ResultSet rsSolution = psQuery.getGeneratedKeys();
+    			if (rsSolution.next()){
+    				idSolution = rsSolution.getInt(1);
+    			}
+			}
+			
+			c.commit();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			c.rollback();
+			e.printStackTrace();
+			/*if (con != null && !con.isClosed()){
+				con.close();
+				System.out.println("Connection closed.");
+			}*/
+			return false;
+		}
+    	/*if (c != null && !c.isClosed()){
+			c.close();
+			System.out.println("Connection closed.");
+		}*/
+    	return true;
     }
     public static boolean PruebaQuery(List<Solution> solutions) throws SQLException {
     	//Connection con = GetConnection();
@@ -230,4 +274,10 @@ public  class ConnectionManager {
 		String b = s.substring(i + 1, s.length());
 		return a + b;
 	}
+    public static String replaceComillas(String texto) {
+		texto = texto.replaceAll("\"", "'");
+		texto = texto.replaceAll("\"", "'");
+		
+        return texto;
+    }
 }

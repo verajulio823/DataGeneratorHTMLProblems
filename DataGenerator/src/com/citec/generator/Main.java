@@ -1,6 +1,7 @@
 package com.citec.generator;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -24,6 +25,7 @@ public class Main {
 		
 		
 		List<CodeEntity> solutions = ConnectionManager.getSolutions();
+		List<CodeEntity> solutionsSave = new ArrayList<CodeEntity>();
 		for (CodeEntity code : solutions) {
 		//	System.out.println(code.getCode());
 			for(int i=0; i<1000; i++){
@@ -36,15 +38,18 @@ public class Main {
 				ParseTree tree = parser.htmlDocument(); // parse; start at prog
 				EvalVisitor eval = new EvalVisitor();
 				eval.visit(tree);
-				System.out.println(eval.getSolucion());
-				
-				System.out.println("TERMINO CODIGO");
+				//System.out.println(eval.getSolucion());
+				CodeEntity cde = new CodeEntity();
+				cde.setCode(eval.getSolucion());
+				cde.setPageId(code.getPageId());
+				solutionsSave.add(cde);
+				//System.out.println("TERMINO CODIGO");
 			}
 		}
 		
 		
 		
-		//List<CodeEntity> results = ConnectionManager.getSolutionEstudents();
+		boolean results = ConnectionManager.saveSinteticSolutions(solutionsSave);
 		
 		
 		//for(int i=0; i<10; i++)			
