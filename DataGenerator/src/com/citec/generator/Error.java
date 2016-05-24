@@ -19,11 +19,29 @@ public class Error {
 	
 	public static Map<Integer,String> eStyle;
 	
+	public static Map<Integer,String> eSintaxisBody;
+	public static Map<Integer,String> eSintaxisP;
+	public static Map<Integer,String> eSintaxisHead;
+	public static Map<Integer,String> eSintaxisStyle;
+	public static Map<Integer,String> eSintaxisLi;
+	public static Map<Integer,String> eSintaxisLo;
+	
+	
+	public static Map<Integer,String> eSintaxisBodyf;
+	public static Map<Integer,String> eSintaxisPf;
+	public static Map<Integer,String> eSintaxisHeadf;
+	public static Map<Integer,String> eSintaxisStylef;
+	public static Map<Integer,String> eSintaxisLif;
+	public static Map<Integer,String> eSintaxisLof;
+	
+	
 	public static String contTitle ="Laboratoria Curso Básico";
 	public static String contH ="Laboratoria";
 	public static String contP ="En Laboratoria aprendemos varios lenguajes para crear páginas web. A continuación presentamos una lista de los lenguajes que aprendemos.";
 	
 	public static String attribute= "\"color:blue;font-size:22px\"";
+	
+	
 	
 	public static void loadError(){
 		eTagH = new HashMap<Integer, String>();
@@ -103,6 +121,95 @@ public class Error {
 		eStyle.put(3, "color:green;font-size:22px;");
 		eStyle.put(4, "color:blue;font-size:23px;");
 		eStyle.put(5, "color:blue;font-sizes:22px;");
+		
+		eSintaxisBody = new  HashMap<Integer, String>();
+		eSintaxisBody.put(1, "<body>");
+		eSintaxisBody.put(2, "<body>>");
+		eSintaxisBody.put(3, "<<body>");
+		eSintaxisBody.put(4, "<body");
+		eSintaxisBody.put(5, "<body;");
+		
+		eSintaxisP = new  HashMap<Integer, String>();
+		eSintaxisP.put(1, "<P>");
+		eSintaxisP.put(2, "<P>>");
+		eSintaxisP.put(3, "<<P>");
+		eSintaxisP.put(4, "<P");
+		eSintaxisP.put(5, "<P;");
+		
+		eSintaxisHead = new  HashMap<Integer, String>();
+		eSintaxisHead.put(1, "<head>");
+		eSintaxisHead.put(2, "<head>>");
+		eSintaxisHead.put(3, "<<head>");
+		eSintaxisHead.put(4, "<head");
+		eSintaxisHead.put(5, "<head;");
+		
+		eSintaxisStyle = new  HashMap<Integer, String>();
+		eSintaxisStyle.put(1, "<style>");
+		eSintaxisStyle.put(2, "<style>>");
+		eSintaxisStyle.put(3, "<<style>");
+		eSintaxisStyle.put(4, "<style");
+		eSintaxisStyle.put(5, "<style;");
+		
+		eSintaxisLi = new  HashMap<Integer, String>();
+		eSintaxisLi.put(1, "<li>");
+		eSintaxisLi.put(2, "<li>>");
+		eSintaxisLi.put(3, "<<li>");
+		eSintaxisLi.put(4, "<li");
+		eSintaxisLi.put(5, "<li;");
+		
+		
+		eSintaxisLo = new  HashMap<Integer, String>();
+		eSintaxisLo.put(1, "<ol>");
+		eSintaxisLo.put(2, "<ol>>");
+		eSintaxisLo.put(3, "<<ol>");
+		eSintaxisLo.put(4, "<ol");
+		eSintaxisLo.put(5, "<ol;");
+		
+		eSintaxisBodyf = new  HashMap<Integer, String>();
+		eSintaxisBodyf.put(1, "</body>");
+		eSintaxisBodyf.put(2, "</body>>");
+		eSintaxisBodyf.put(3, "</<body>");
+		eSintaxisBodyf.put(4, "</body");
+		eSintaxisBodyf.put(5, "</body;");
+		
+		eSintaxisPf = new  HashMap<Integer, String>();
+		eSintaxisPf.put(1, "</P>");
+		eSintaxisPf.put(2, "</P>>");
+		eSintaxisPf.put(3, "</<P>");
+		eSintaxisPf.put(4, "</P");
+		eSintaxisPf.put(5, "</P;");
+		
+		eSintaxisHeadf = new  HashMap<Integer, String>();
+		eSintaxisHeadf.put(1, "</head>");
+		eSintaxisHeadf.put(2, "</head>>");
+		eSintaxisHeadf.put(3, "</<head>");
+		eSintaxisHeadf.put(4, "</head");
+		eSintaxisHeadf.put(5, "</head;");
+		
+		eSintaxisStylef = new  HashMap<Integer, String>();
+		eSintaxisStylef.put(1, "</style>");
+		eSintaxisStylef.put(2, "</style>>");
+		eSintaxisStylef.put(3, "</<style>");
+		eSintaxisStylef.put(4, "</style");
+		eSintaxisStylef.put(5, "</style;");
+		
+		eSintaxisLif = new  HashMap<Integer, String>();
+		eSintaxisLif.put(1, "</li>");
+		eSintaxisLif.put(2, "</li>>");
+		eSintaxisLif.put(3, "</<li>");
+		eSintaxisLif.put(4, "</li");
+		eSintaxisLif.put(5, "</li;");
+		
+		
+		eSintaxisLof = new  HashMap<Integer, String>();
+		eSintaxisLof.put(1, "</ol>");
+		eSintaxisLof.put(2, "</ol>>");
+		eSintaxisLof.put(3, "</<ol>");
+		eSintaxisLof.put(4, "</ol");
+		eSintaxisLof.put(5, "</ol;");
+		
+		 
+		
 		
 		
 	}

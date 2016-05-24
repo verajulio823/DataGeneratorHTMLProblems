@@ -22,6 +22,7 @@ public class Main {
 		ConnectionManager.GetConnection();
 		Error.loadError();
 		
+		
 		List<CodeEntity> solutions = ConnectionManager.getSolutions();
 		for (CodeEntity code : solutions) {
 		//	System.out.println(code.getCode());

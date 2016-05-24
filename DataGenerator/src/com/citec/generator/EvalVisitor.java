@@ -48,6 +48,7 @@ public class EvalVisitor extends HTMLParserBaseVisitor<String> {
 		
 		// TODO Auto-generated method stub
 		//System.out.println("XTX "+ctx.getText());
+		
 		if(flag==false){
 			solucion= ctx.getText();
 			flag = true;
@@ -119,6 +120,21 @@ public class EvalVisitor extends HTMLParserBaseVisitor<String> {
 			
 			}
 			if(s.equals("body")){
+				int ps = (int)Math.ceil(Math.random()*10);
+				String serror="";
+				if(ps>8){
+					int pif = (int)Math.ceil(Math.random()*2);
+					int key = (int)Math.ceil(Math.random()*5);
+					if(pif==1){
+						serror = Error.eSintaxisBody.get(key);
+						solucion = solucion.replaceFirst("<body>", serror);
+					}else{
+						serror = Error.eSintaxisBody.get(key);
+						solucion = solucion.replaceFirst("</body>", serror);
+					}						
+					
+				}
+				
 				int p=	(int)Math.ceil(Math.random()*5);
 				String body=Error.eTagBody.get(Integer.parseInt(p+""));
 				solucion = solucion.replaceFirst(s,body);
@@ -126,26 +142,99 @@ public class EvalVisitor extends HTMLParserBaseVisitor<String> {
 			}
 			if(s.equals("head")){
 				int p=	(int)Math.ceil(Math.random()*5);
+				int ps=	(int)Math.ceil(Math.random()*10);
+				String serror ="";
+				if(ps>8){
+					int pif = (int)Math.ceil(Math.random()*2);
+					int key = (int)Math.ceil(Math.random()*5);
+					if(pif==1){
+						serror = Error.eSintaxisHead.get(key);
+						solucion = solucion.replaceFirst("<head>", serror);
+					}else{
+						serror = Error.eSintaxisHeadf.get(key);
+						solucion = solucion.replaceFirst("</head>", serror);
+					}						
+					
+				}
+				
 				String head=Error.eTagHead.get(Integer.parseInt(p+""));
 				solucion = solucion.replaceFirst(s,head);				
 			}
 			if(s.equals("style")){
 				int p=	(int)Math.ceil(Math.random()*5);
+				int ps=	(int)Math.ceil(Math.random()*10);
+				String serror ="";
+				if(ps>8){
+					int pif = (int)Math.ceil(Math.random()*2);
+					int key = (int)Math.ceil(Math.random()*5);
+					if(pif==1){
+						serror = Error.eSintaxisStyle.get(key);
+						solucion = solucion.replaceFirst("<style>", serror);
+					}else{
+						serror = Error.eSintaxisStylef.get(key);
+						solucion = solucion.replaceFirst("</style>", serror);
+					}						
+					
+				}
+				
 				String style=Error.eTagStyle.get(Integer.parseInt(p+""));
 				solucion = solucion.replaceFirst(s,style);				
 			}
 			if(s.equals("li")){
 				int p=	(int)Math.ceil(Math.random()*5);
+				int ps=	(int)Math.ceil(Math.random()*10);
+				String serror ="";
+				if(ps>8){
+					int pif = (int)Math.ceil(Math.random()*2);
+					int key = (int)Math.ceil(Math.random()*5);
+					if(pif==1){
+						serror = Error.eSintaxisLi.get(key);
+						solucion = solucion.replaceFirst("<li>", serror);
+					}else{
+						serror = Error.eSintaxisLif.get(key);
+						solucion = solucion.replaceFirst("</li>", serror);
+					}						
+					
+				}
 				String li=Error.eTagLi.get(Integer.parseInt(p+""));
 				solucion = solucion.replaceFirst(s,li);				
 			}
 			if(s.equals("ol")){
 				int p=	(int)Math.ceil(Math.random()*5);
+				int ps=	(int)Math.ceil(Math.random()*10);
+				String serror ="";
+				if(ps>8){
+					int pif = (int)Math.ceil(Math.random()*2);
+					int key = (int)Math.ceil(Math.random()*5);
+					if(pif==1){
+						serror = Error.eSintaxisLo.get(key);
+						solucion = solucion.replaceFirst("<ol>", serror);
+					}else{
+						serror = Error.eSintaxisLof.get(key);
+						solucion = solucion.replaceFirst("</ol>", serror);
+					}						
+					
+				}
 				String ol=Error.eTagLo.get(Integer.parseInt(p+""));
-				solucion = solucion.replaceFirst(s,ol);				
+				solucion = solucion.replaceFirst(s,ol);	
+				
 			}
 			if(s.equals("p")){
 				int p=	(int)Math.ceil(Math.random()*5);
+				int ps=	(int)Math.ceil(Math.random()*10);
+				String serror ="";
+				if(ps>8){
+					int pif = (int)Math.ceil(Math.random()*2);
+					int key = (int)Math.ceil(Math.random()*5);
+					if(pif==1){
+						serror = Error.eSintaxisP.get(key);
+						solucion = solucion.replaceFirst("<p>", serror);
+					}else{
+						serror = Error.eSintaxisPf.get(key);
+						solucion = solucion.replaceFirst("</p>", serror);
+					}						
+					
+				}
 				String pp=Error.eTagP.get(Integer.parseInt(p+""));
 				solucion = solucion.replaceFirst(s,pp);				
 			}
@@ -298,5 +387,6 @@ public class EvalVisitor extends HTMLParserBaseVisitor<String> {
 		// TODO Auto-generated method stub
 		return super.visitHtmlMiscComment(ctx);
 	}
+	
 
 }
