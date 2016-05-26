@@ -81,7 +81,7 @@ public class Main {
 		
 		boolean results = ConnectionManager.saveSinteticSolutions(solutionsSave);
 */		
-	}
+	//}
 	
 	public static String parser(String s, List<String> r){
 		String json="{";
