@@ -39,7 +39,7 @@ public  class ConnectionManager {
         try {
         	Class.forName("com.mysql.jdbc.Driver");
             c = DriverManager
-            		.getConnection("jdbc:mysql://localhost:3306/capitan?user=root&password=");
+            		.getConnection("jdbc:mysql://localhost:3306/capitan?user=root&password=sistemas");
         } catch (SQLException e) {
         	System.out.println("SQLException: " + e.getMessage());
             System.out.println("SQLState: " + e.getSQLState());
